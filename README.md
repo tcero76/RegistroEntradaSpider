@@ -8,7 +8,7 @@ npm install
 Crear un archivo login.json con el siguiente contenido:
 
 ```js
-{ rut, clave }
+{ "rut", "clave" }
 ```
 
 Configurar el **Programador de tareas** con la siguiente acción:
