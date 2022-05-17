@@ -5,7 +5,7 @@ Instalar las librerías
 npm install
 ```
 
-Crear un archivo login.js con el siguiente contenido:
+Crear un archivo login.json con el siguiente contenido:
 
 ```js
 export default { rut, clave };
