@@ -20,10 +20,15 @@ const { rut, clave } = require('./login.json');
     await page.click('a.btn.btn-blue');
 
     await page.waitForSelector('button.btn-green');
-
     await page.click('button.btn-green');
-    let resp = await page.$eval('button.btn-green', e => e.getAttribute('id'));
-    console.log(resp);
+
+    await page.waitForSelector('div.z-window-highlighted');
+    let aceptar = await page.evaluate(() => {
+        var items = document.getElementsByClassName('z-button');
+        console.log(items)
+        return items[1].getAttribute('id');
+      });
+    await page.click('#'+aceptar);
 
     fs.appendFile('./log.txt', new Date() + '\n', function (err) {
         if (err) throw err;
