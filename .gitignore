@@ -1,3 +1,6 @@
 node_modules/
 registro.png
 login.js
+login.json
+.idea/
+log.txt

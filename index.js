@@ -1,8 +1,9 @@
 const puppeteer = require('puppeteer');
 var fs = require('fs');
-import { rut, clave } from  './login';
+const { rut, clave } = require('./login.json');
 
-(async () => {
+
+(async (rut,clave) => {
   const browser = await puppeteer.launch({headless: false });
   const page = await browser.newPage();
   await page.goto('https://trabajador.relojcontrol.com/login.zul');
@@ -11,16 +12,16 @@ import { rut, clave } from  './login';
     var items = document.getElementsByClassName('form-control');
     return [items[2].getAttribute('id'),items[3].getAttribute('id')];
   });
-   const rut = await page.$("#" + isItem[0])
-    await rut.type(rut);
-    const clave = await page.$("#" + isItem[1])
-    await clave.type(clave);
+   const rutInput = await page.$("#" + isItem[0])
+    await rutInput.type(rut);
+    const claveInput = await page.$("#" + isItem[1])
+    await claveInput.type(clave);
 
     await page.click('a.btn.btn-blue');
 
     await page.waitForSelector('button.btn-green');
 
-    // await page.click('button.btn-green');
+    await page.click('button.btn-green');
     let resp = await page.$eval('button.btn-green', e => e.getAttribute('id'));
     console.log(resp);
 
@@ -32,6 +33,6 @@ import { rut, clave } from  './login';
   await page.screenshot({ path: 'registro.png' });
 
   await browser.close();
-})();
+})(rut,clave);
 
 
