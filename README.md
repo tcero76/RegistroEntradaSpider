@@ -13,7 +13,7 @@ export default { rut, clave };
 
 > Configurar el **Programador de tareas** con la siguiente acción:
 
-![alt text](./acciones.png)
+![alt text](./img/acciones.png)
 
 dónde:
 > Programa o script: *ruta de nodejs*.
