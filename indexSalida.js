@@ -37,7 +37,7 @@ const { rut, clave } = require('./login.json');
 
   await page.screenshot({ path: 'registro.png' });
 
-  await browser.close();
+//  await browser.close();
 })(rut,clave);
 
 
